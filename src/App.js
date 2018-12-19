@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Previewer from './components/previewer'
+import Editor from './components/editor'
+
 
 class App extends Component {
-  render() {
+  constructor(props){
+    super(props);
+    this.state = {
+      input: placeholder
+    };
+    this.editorChange = this.editorChange.bind(this);
+  }
+ 
+  editorChange(event){
+    this.setState({ input: event.target.value});
+  }
+
+  render(){
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+      <Previewer appinput = {this.state.input}/>
+      <Editor appstatechange= {this.editorChange} appinput = {this.state.input}/>
       </div>
     );
   }
 }
-
 export default App;
+
+let placeholder = "# This is header1\n\n## This is header2\n\n### This is header3";
