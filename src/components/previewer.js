@@ -4,7 +4,9 @@ import ReactMarkdown from 'react-markdown';
 class Previewer extends Component {
     render(){
       return(
-        <ReactMarkdown source = {this.props.appinput}/>
+        <div>
+        <ReactMarkdown className= "main" source = {this.props.appinput}/>
+        </div>
       );
     }
   }
