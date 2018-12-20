@@ -2,6 +2,7 @@
   border-radius: 5px;
   box-sizing: border-box;
 }
+
 .App {
   text-align: center;
 }
@@ -11,12 +12,9 @@ body{
   margin: 0%;
 }
 
-
-
 #container {
   width: 90%;
   margin: auto auto;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows:auto;
@@ -31,10 +29,7 @@ body{
   padding: 1vw;
 }
 
-.main{
-
-}
-
+/*way to resize textarea is to follow containing div*/
 textarea {
   width: 100%;
   height: 100%;

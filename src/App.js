@@ -3,7 +3,7 @@ import './App.css';
 import Previewer from './components/previewer'
 import Editor from './components/editor'
 
-
+//App have one state, rendering two other components, have two functions 
 class App extends Component {
   constructor(props){
     super(props);
@@ -12,18 +12,20 @@ class App extends Component {
     };
     this.editorChange = this.editorChange.bind(this);
     this.buttonClear = this.buttonClear.bind(this);
-
   }
- 
+
+//setState function collecting a value from <textarea>
   editorChange(event){
     this.setState({ input: event.target.value});
   }
 
+//clear out all text in input 
   buttonClear(){
     this.setState({input: ""})
   }
 
-
+//Editor component will receive function editorChange, and state
+//Previewer component will receive state
   render(){
     return (
       <div id="container">
@@ -32,10 +34,10 @@ class App extends Component {
         <Editor appstatechange= {this.editorChange} appinput = {this.state.input}/>
         <Previewer appinput = {this.state.input}/>
         <div className= "buttons">
-        <button onClick= {this.buttonClear}><i class="fas fa-times-circle fa-3x"></i></button>
+          <button onClick= {this.buttonClear}><i class="fas fa-times-circle fa-3x"></i></button>
         </div>
         <div className= "buttons">
-        <button onClick= {this.buttonClear}><i class="fas fa-times-circle fa-3x"></i></button>
+          <button onClick= {this.buttonClear}><i class="fas fa-times-circle fa-3x"></i></button>
         </div>
       </div> 
     );
@@ -43,7 +45,7 @@ class App extends Component {
 }
 export default App;
 
-
+//placeholder for initial load
 let placeholder = `
 # Heading number 1
 ## Heading number 2
